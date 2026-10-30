@@ -1,0 +1,428 @@
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/app/[locale]/about/page.tsx P4/src/app/[locale]/about/page.tsx
+--- P3/src/app/[locale]/about/page.tsx	2026-08-08 07:47:19.630929121 +0000
++++ P4/src/app/[locale]/about/page.tsx	2026-08-08 07:48:49.741942263 +0000
+@@ -1,14 +1,48 @@
+-import { useTranslations } from 'next-intl';
++import { getTranslations } from 'next-intl/server';
+ import type { Metadata } from 'next';
++import { ScrollReveal, StaggerChildren, SectionLabel } from '@/components/ui';
+ 
+ export const metadata: Metadata = { title: 'About' };
+ 
+-export default function AboutPage() {
+-  const t = useTranslations('nav');
++export default async function AboutPage() {
++  const t = await getTranslations('about');
++
++  const values = [
++    { title: t('value1Title'), body: t('value1Body') },
++    { title: t('value2Title'), body: t('value2Body') },
++    { title: t('value3Title'), body: t('value3Body') },
++  ];
++
+   return (
+     <section className="min-h-screen pt-32 pb-20">
+       <div className="container mx-auto px-4 md:px-8">
+-        <h1 className="font-heading text-display font-bold tracking-tight">{t('about')}</h1>
++        <ScrollReveal>
++          <SectionLabel>{t('eyebrow')}</SectionLabel>
++          <h1 className="font-heading text-display font-bold tracking-tight mt-4 mb-8">{t('title')}</h1>
++          <p className="text-lg text-muted font-light leading-relaxed max-w-2xl mb-20">{t('intro')}</p>
++        </ScrollReveal>
++
++        <ScrollReveal>
++          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
++            <div className="md:col-span-5">
++              <div className="aspect-[4/5] w-full bg-gradient-to-br from-stone-200 to-stone-400 rounded-sm" />
++            </div>
++            <div className="md:col-span-7 flex flex-col justify-center">
++              <h2 className="font-heading text-2xl md:text-3xl mb-6">{t('storyTitle')}</h2>
++              <p className="text-muted font-light leading-relaxed max-w-xl">{t('storyBody')}</p>
++            </div>
++          </div>
++        </ScrollReveal>
++
++        <SectionLabel className="mb-12">{t('valuesTitle')}</SectionLabel>
++        <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-12">
++          {values.map((value) => (
++            <div key={value.title}>
++              <h3 className="font-heading text-xl mb-3">{value.title}</h3>
++              <p className="text-sm text-muted font-light leading-relaxed">{value.body}</p>
++            </div>
++          ))}
++        </StaggerChildren>
+       </div>
+     </section>
+   );
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/app/[locale]/faq/page.tsx P4/src/app/[locale]/faq/page.tsx
+--- P3/src/app/[locale]/faq/page.tsx	2026-08-08 07:47:19.631508847 +0000
++++ P4/src/app/[locale]/faq/page.tsx	2026-08-08 07:48:49.749394401 +0000
+@@ -1,12 +1,48 @@
++import { getTranslations } from 'next-intl/server';
+ import type { Metadata } from 'next';
++import { SectionLabel } from '@/components/ui';
++import { AccordionItem } from '@/components/faq';
+ 
+ export const metadata: Metadata = { title: 'FAQ' };
+ 
+-export default function FAQPage() {
++interface FaqItem {
++  category: string;
++  question: string;
++  answer: string;
++}
++
++export default async function FaqPage() {
++  const t = await getTranslations('faq');
++  const categories = t.raw('categories') as Record<string, string>;
++  const items = t.raw('items') as FaqItem[];
++
++  const groups = Object.keys(categories).map((key) => ({
++    key,
++    label: categories[key],
++    items: items.filter((item) => item.category === key),
++  }));
++
+   return (
+     <section className="min-h-screen pt-32 pb-20">
+       <div className="container mx-auto px-4 md:px-8">
+-        <h1 className="font-heading text-display font-bold tracking-tight">FAQ</h1>
++        <h1 className="font-heading text-display font-bold tracking-tight mb-4">{t('title')}</h1>
++        <p className="text-muted text-lg font-light mb-16 max-w-xl">{t('subtitle')}</p>
++
++        <div className="max-w-3xl space-y-16">
++          {groups.map(
++            (group) =>
++              group.items.length > 0 && (
++                <div key={group.key}>
++                  <SectionLabel className="mb-6">{group.label}</SectionLabel>
++                  <div>
++                    {group.items.map((item) => (
++                      <AccordionItem key={item.question} question={item.question} answer={item.answer} />
++                    ))}
++                  </div>
++                </div>
++              )
++          )}
++        </div>
+       </div>
+     </section>
+   );
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/app/[locale]/lookbook/page.tsx P4/src/app/[locale]/lookbook/page.tsx
+--- P3/src/app/[locale]/lookbook/page.tsx	2026-08-08 07:47:19.632831543 +0000
++++ P4/src/app/[locale]/lookbook/page.tsx	2026-08-08 07:48:49.864693156 +0000
+@@ -1,14 +1,33 @@
+-import { useTranslations } from 'next-intl';
++import { getTranslations } from 'next-intl/server';
+ import type { Metadata } from 'next';
++import { StaggerChildren } from '@/components/ui';
+ 
+ export const metadata: Metadata = { title: 'Lookbook' };
+ 
+-export default function LookbookPage() {
+-  const t = useTranslations('sections');
++const LOOKS = Array.from({ length: 9 }, (_, i) => i + 1);
++
++export default async function LookbookPage() {
++  const t = await getTranslations('lookbook');
++  const tHome = await getTranslations('home');
++
+   return (
+     <section className="min-h-screen pt-32 pb-20">
+       <div className="container mx-auto px-4 md:px-8">
+-        <h1 className="font-heading text-display font-bold tracking-tight">{t('lookbook')}</h1>
++        <h1 className="font-heading text-display font-bold tracking-tight mb-4">{t('title')}</h1>
++        <p className="text-muted text-lg font-light mb-16 max-w-xl">{t('subtitle')}</p>
++
++        <StaggerChildren className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
++          {LOOKS.map((look) => (
++            <div key={look} className="relative group">
++              <div className="aspect-[3/4] w-full bg-gradient-to-tr from-stone-200 to-stone-400 rounded-sm overflow-hidden">
++                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
++              </div>
++              <div className="absolute bottom-4 left-4 text-white mix-blend-difference">
++                <p className="text-xs tracking-widest uppercase font-medium">{tHome('lookbookLook', { number: look })}</p>
++              </div>
++            </div>
++          ))}
++        </StaggerChildren>
+       </div>
+     </section>
+   );
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/app/[locale]/mission/page.tsx P4/src/app/[locale]/mission/page.tsx
+--- P3/src/app/[locale]/mission/page.tsx	2026-08-08 07:47:19.633007271 +0000
++++ P4/src/app/[locale]/mission/page.tsx	2026-08-08 07:48:49.745068037 +0000
+@@ -1,14 +1,25 @@
+-import { useTranslations } from 'next-intl';
++import { getTranslations } from 'next-intl/server';
+ import type { Metadata } from 'next';
++import { ScrollReveal, SectionLabel } from '@/components/ui';
+ 
+ export const metadata: Metadata = { title: 'Mission' };
+ 
+-export default function MissionPage() {
+-  const t = useTranslations('nav');
++export default async function MissionPage() {
++  const t = await getTranslations('mission');
++
+   return (
+-    <section className="min-h-screen pt-32 pb-20">
+-      <div className="container mx-auto px-4 md:px-8">
+-        <h1 className="font-heading text-display font-bold tracking-tight">{t('mission')}</h1>
++    <section className="min-h-screen pt-32 pb-20 flex items-center">
++      <div className="container mx-auto px-4 md:px-8 text-center">
++        <ScrollReveal>
++          <div className="max-w-3xl mx-auto flex flex-col items-center">
++            <SectionLabel className="mb-8">{t('title')}</SectionLabel>
++            <h1 className="font-heading text-3xl md:text-5xl leading-tight text-foreground mb-8 text-balance">
++              {t('statement')}
++            </h1>
++            <div className="w-12 h-[1px] bg-foreground/20 mb-8" />
++            <p className="text-muted text-lg font-light leading-relaxed max-w-2xl">{t('body')}</p>
++          </div>
++        </ScrollReveal>
+       </div>
+     </section>
+   );
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/app/[locale]/vision/page.tsx P4/src/app/[locale]/vision/page.tsx
+--- P3/src/app/[locale]/vision/page.tsx	2026-08-08 07:47:19.633272604 +0000
++++ P4/src/app/[locale]/vision/page.tsx	2026-08-08 07:48:49.747285035 +0000
+@@ -1,14 +1,25 @@
+-import { useTranslations } from 'next-intl';
++import { getTranslations } from 'next-intl/server';
+ import type { Metadata } from 'next';
++import { ScrollReveal, SectionLabel } from '@/components/ui';
+ 
+ export const metadata: Metadata = { title: 'Vision' };
+ 
+-export default function VisionPage() {
+-  const t = useTranslations('nav');
++export default async function VisionPage() {
++  const t = await getTranslations('vision');
++
+   return (
+-    <section className="min-h-screen pt-32 pb-20">
+-      <div className="container mx-auto px-4 md:px-8">
+-        <h1 className="font-heading text-display font-bold tracking-tight">{t('vision')}</h1>
++    <section className="min-h-screen pt-32 pb-20 flex items-center">
++      <div className="container mx-auto px-4 md:px-8 text-center">
++        <ScrollReveal>
++          <div className="max-w-3xl mx-auto flex flex-col items-center">
++            <SectionLabel className="mb-8">{t('title')}</SectionLabel>
++            <h1 className="font-heading text-3xl md:text-5xl leading-tight text-foreground mb-8 text-balance">
++              {t('statement')}
++            </h1>
++            <div className="w-12 h-[1px] bg-foreground/20 mb-8" />
++            <p className="text-muted text-lg font-light leading-relaxed max-w-2xl">{t('body')}</p>
++          </div>
++        </ScrollReveal>
+       </div>
+     </section>
+   );
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/components/faq/accordion-item.tsx P4/src/components/faq/accordion-item.tsx
+--- P3/src/components/faq/accordion-item.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P4/src/components/faq/accordion-item.tsx	2026-08-08 07:48:49.724693159 +0000
+@@ -0,0 +1,30 @@
++'use client';
++
++import { useState } from 'react';
++import { ChevronDown } from 'lucide-react';
++
++interface AccordionItemProps {
++  question: string;
++  answer: string;
++}
++
++export function AccordionItem({ question, answer }: AccordionItemProps) {
++  const [isOpen, setIsOpen] = useState(false);
++
++  return (
++    <div className="border-b border-border">
++      <button
++        type="button"
++        onClick={() => setIsOpen((prev) => !prev)}
++        aria-expanded={isOpen}
++        className="w-full flex items-center justify-between gap-4 py-6 text-left"
++      >
++        <span className="font-heading text-lg">{question}</span>
++        <ChevronDown
++          className={`shrink-0 w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
++        />
++      </button>
++      {isOpen && <p className="pb-6 text-muted font-light leading-relaxed max-w-2xl">{answer}</p>}
++    </div>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/components/faq/index.ts P4/src/components/faq/index.ts
+--- P3/src/components/faq/index.ts	1970-01-01 00:00:00.000000000 +0000
++++ P4/src/components/faq/index.ts	2026-08-08 07:48:49.732693159 +0000
+@@ -0,0 +1 @@
++export { AccordionItem } from './accordion-item';
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/messages/en.json P4/src/messages/en.json
+--- P3/src/messages/en.json	2026-08-08 07:47:19.639718273 +0000
++++ P4/src/messages/en.json	2026-08-08 07:48:43.562382155 +0000
+@@ -256,5 +256,80 @@
+     "stylingGuideBody": "From classic neck ties to modern top styles, discover versatile ways to incorporate our signature silks into your everyday repertoire.",
+     "readGuide": "Read Guide",
+     "followUs": "Follow Us"
++  },
++  "about": {
++    "eyebrow": "Our Story",
++    "title": "About RULLIÉ",
++    "intro": "RULLIÉ was founded on a simple belief: the pieces we choose to wear should outlast the seasons that inspired them.",
++    "storyTitle": "Where It Began",
++    "storyBody": "Every RULLIÉ piece begins the same way — with a question. Not “what's trending,” but “what will still feel right in ten years?” That question shapes every fabric we choose, every silhouette we cut, and every detail we refuse to compromise on.",
++    "valuesTitle": "What We Stand For",
++    "value1Title": "Craftsmanship",
++    "value1Body": "Each piece is made in small batches, with time given to the details that machines can't replicate.",
++    "value2Title": "Longevity",
++    "value2Body": "We design for a decade, not a season — fewer, better pieces, made to be worn rather than replaced.",
++    "value3Title": "Quiet Confidence",
++    "value3Body": "RULLIÉ is for those who don't need to shout to be noticed."
++  },
++  "mission": {
++    "title": "Our Mission",
++    "statement": "To create pieces so considered, so quietly confident, that they become part of how you're remembered — not just what you wore.",
++    "body": "We exist to slow fashion down. Every RULLIÉ piece is designed to be kept, not replaced — built from materials and techniques chosen for how they age, not just how they arrive."
++  },
++  "vision": {
++    "title": "Our Vision",
++    "statement": "A wardrobe built on fewer, better decisions.",
++    "body": "We imagine a future where personal style isn’t dictated by seasonal drops, but by pieces that grow more meaningful with time. RULLIÉ is our first step toward that future — one considered piece at a time."
++  },
++  "faq": {
++    "title": "Frequently Asked Questions",
++    "subtitle": "Everything you need to know before your first — or next — RULLIÉ piece.",
++    "categories": {
++      "ordersShipping": "Orders & Shipping",
++      "returnsExchanges": "Returns & Exchanges",
++      "materialsCare": "Materials & Care",
++      "sizingFit": "Sizing & Fit"
++    },
++    "items": [
++      {
++        "category": "ordersShipping",
++        "question": "How long does shipping take?",
++        "answer": "Orders are typically processed within 1–2 business days. Delivery times vary by destination and are confirmed at checkout."
++      },
++      {
++        "category": "ordersShipping",
++        "question": "Do you ship internationally?",
++        "answer": "We currently ship to a select group of countries, with more being added over time. Availability is shown at checkout."
++      },
++      {
++        "category": "returnsExchanges",
++        "question": "What is your return policy?",
++        "answer": "Unworn items in original condition can be returned within 14 days of delivery. Please reach out to our team to start a return."
++      },
++      {
++        "category": "returnsExchanges",
++        "question": "Can I exchange an item for a different size?",
++        "answer": "Yes — exchanges are handled the same way as returns. Contact us and we’ll guide you through it."
++      },
++      {
++        "category": "materialsCare",
++        "question": "How should I care for my silk pieces?",
++        "answer": "We recommend dry cleaning only, and storing pieces flat, away from direct sunlight and perfume or alcohol-based products."
++      },
++      {
++        "category": "materialsCare",
++        "question": "Where are RULLIÉ pieces made?",
++        "answer": "Each piece is made in small batches by artisans we work with directly, using materials chosen for how they age over time."
++      },
++      {
++        "category": "sizingFit",
++        "question": "How do I know what size to order?",
++        "answer": "Most RULLIÉ pieces — scarves, belts, and accessories — are designed to fit universally. Product pages note sizing where relevant."
++      }
++    ]
++  },
++  "lookbook": {
++    "title": "Lookbook",
++    "subtitle": "A visual record of how RULLIÉ is worn."
+   }
+ }
+diff -ruN '--exclude=prototype' '--exclude=images' P3/src/messages/tr.json P4/src/messages/tr.json
+--- P3/src/messages/tr.json	2026-08-08 07:47:19.639830639 +0000
++++ P4/src/messages/tr.json	2026-08-08 07:48:43.563143690 +0000
+@@ -256,5 +256,80 @@
+     "stylingGuideBody": "Klasik boyun bağlarından modern üst stillere, imza ipeklerimizi günlük repertuvarınıza dahil etmenin çok yönlü yollarını keşfedin.",
+     "readGuide": "Rehberi Oku",
+     "followUs": "Bizi Takip Edin"
++  },
++  "about": {
++    "eyebrow": "Hikayemiz",
++    "title": "RULLIÉ Hakkında",
++    "intro": "RULLIÉ, basit bir inanışla kuruldu: giymeyi seçtiğimiz parçalar, onlara ilham veren mevsimlerden daha uzun ömürlü olmalı.",
++    "storyTitle": "Başlangıç",
++    "storyBody": "Her RULLIÉ parçası aynı şekilde başlar — bir soruyla. \"Trend ne?\" değil, \"on yıl sonra da doğru hissettirecek mi?\" Bu soru; seçtiğimiz her kumaşı, kestiğimiz her silueti ve asla taviz vermediğimiz her detayı şekillendirir.",
++    "valuesTitle": "Neyi Savunuyoruz",
++    "value1Title": "Zanaatkarlık",
++    "value1Body": "Her parça küçük partiler halinde, makinelerin taklit edemeyeceği detaylara zaman ayrılarak üretilir.",
++    "value2Title": "Kalıcılık",
++    "value2Body": "Bir mevsim için değil, on yıl için tasarlıyoruz — daha az ama daha iyi parçalar, değiştirilmek değil giyilmek üzere üretilir.",
++    "value3Title": "Sessiz Özgüven",
++    "value3Body": "RULLIÉ, fark edilmek için bağırmaya ihtiyaç duymayanlar için."
++  },
++  "mission": {
++    "title": "Misyonumuz",
++    "statement": "Öylesine özenle tasarlanmış, öylesine sessizce özgüvenli parçalar yaratmak ki, sadece ne giydiğinizin değil, nasıl hatırlandığınızın da bir parçası olsunlar.",
++    "body": "Var oluş amacımız modayı yavaşlatmak. Her RULLIÉ parçası, değiştirilmek için değil saklanmak için tasarlanır — nasıl geldiklerinden çok nasıl yıprandıklarına göre seçilmiş malzeme ve tekniklerle üretilir."
++  },
++  "vision": {
++    "title": "Vizyonumuz",
++    "statement": "Daha az ama daha doğru kararlarla kurulmuş bir gardırop.",
++    "body": "Kişisel stilin mevsimlik koleksiyonlarla değil, zamanla daha anlamlı hale gelen parçalarla şekillendiği bir geleceği hayal ediyoruz. RULLIÉ, o geleceğe attığımız ilk adım — her seferinde tek bir özenli parçayla."
++  },
++  "faq": {
++    "title": "Sıkça Sorulan Sorular",
++    "subtitle": "İlk — ya da bir sonraki — RULLIÉ parçanızdan önce bilmeniz gereken her şey.",
++    "categories": {
++      "ordersShipping": "Sipariş & Kargo",
++      "returnsExchanges": "İade & Değişim",
++      "materialsCare": "Malzeme & Bakım",
++      "sizingFit": "Beden & Uyum"
++    },
++    "items": [
++      {
++        "category": "ordersShipping",
++        "question": "Kargo ne kadar sürede geliyor?",
++        "answer": "Siparişler genellikle 1-2 iş günü içinde hazırlanır. Teslimat süresi hedef ülkeye göre değişir ve ödeme adımında onaylanır."
++      },
++      {
++        "category": "ordersShipping",
++        "question": "Yurt dışına kargo gönderiyor musunuz?",
++        "answer": "Şu anda seçili bir ülke grubuna kargo gönderiyoruz, bu liste zamanla genişliyor. Uygunluk ödeme adımında gösterilir."
++      },
++      {
++        "category": "returnsExchanges",
++        "question": "İade politikanız nedir?",
++        "answer": "Kullanılmamış, orijinal durumundaki ürünler teslimattan itibaren 14 gün içinde iade edilebilir. İade başlatmak için ekibimizle iletişime geçin."
++      },
++      {
++        "category": "returnsExchanges",
++        "question": "Ürünü farklı bir bedenle değiştirebilir miyim?",
++        "answer": "Evet — değişimler iadeyle aynı şekilde işleniyor. Bize ulaşın, süreçte size yol gösterelim."
++      },
++      {
++        "category": "materialsCare",
++        "question": "İpek parçalarıma nasıl bakmalıyım?",
++        "answer": "Sadece kuru temizleme öneriyoruz; parçaları düz şekilde, doğrudan güneş ışığından ve parfüm/alkol bazlı ürünlerden uzak saklayın."
++      },
++      {
++        "category": "materialsCare",
++        "question": "RULLIÉ parçaları nerede üretiliyor?",
++        "answer": "Her parça, doğrudan çalıştığımız zanaatkarlar tarafından küçük partiler halinde, zamanla nasıl yıprandığına göre seçilmiş malzemelerle üretilir."
++      },
++      {
++        "category": "sizingFit",
++        "question": "Hangi bedeni seçeceğimi nasıl anlarım?",
++        "answer": "Çoğu RULLIÉ parçası — eşarplar, kemerler ve aksesuarlar — evrensel uyum için tasarlanmıştır. İlgili olduğu durumlarda ürün sayfalarında beden bilgisi belirtilir."
++      }
++    ]
++  },
++  "lookbook": {
++    "title": "Lookbook",
++    "subtitle": "RULLIÉ'nin nasıl giyildiğine dair görsel bir kayıt."
+   }
+ }

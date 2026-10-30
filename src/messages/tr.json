@@ -1,0 +1,368 @@
+{
+  "brand": {
+    "name": "RULLIÉ",
+    "tagline": "Unutulmamak İçin Tasarlandı"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "shop": "Mağaza",
+    "collections": "Koleksiyonlar",
+    "lookbook": "Lookbook",
+    "journal": "Günlük",
+    "about": "Hakkımızda",
+    "vision": "Vizyon",
+    "mission": "Misyon",
+    "contact": "İletişim",
+    "faq": "SSS",
+    "search": "Arama",
+    "account": "Hesabım",
+    "wishlist": "İstek Listesi",
+    "cart": "Sepet",
+    "aiStudio": "AI Stüdyo",
+    "language": "EN"
+  },
+  "hero": {
+    "title": "RULLIÉ",
+    "subtitle": "Unutulmamak İçin Tasarlandı.",
+    "cta": "Koleksiyonu Keşfet",
+    "scroll": "Kaydır"
+  },
+  "sections": {
+    "latestChapter": "Son Bölüm",
+    "featuredProducts": "Öne Çıkan Parçalar",
+    "manifesto": "Felsefemiz",
+    "editorial": "Editoryal",
+    "lookbook": "Lookbook",
+    "completeTheStory": "Hikâyeyi Tamamla",
+    "stylingGuide": "Stil Rehberi",
+    "aiStudio": "AI Stüdyo",
+    "wornByYou": "Sizin Stiliniz",
+    "socialFeed": "@rullié",
+    "journal": "Günlükten",
+    "newsletter": "RULLIÉ Dünyasına Katıl"
+  },
+  "product": {
+    "addToWishlist": "İstek Listesine Ekle",
+    "removeFromWishlist": "İstek Listesinden Çıkar",
+    "buyViaShopier": "Shopier'da Keşfet",
+    "material": "Materyal",
+    "careInstructions": "Bakım Talimatları",
+    "story": "Hikaye",
+    "details": "Detaylar",
+    "relatedProducts": "Hikâyeyi Tamamla",
+    "inStock": "Stokta",
+    "lowStock": "Son Birkaç Ürün",
+    "outOfStock": "Şu An Mevcut Değil",
+    "preOrder": "Ön Sipariş",
+    "new": "Yeni",
+    "featured": "Öne Çıkan",
+    "exploreAll": "Tüm Parçaları Keşfet",
+    "viewCollection": "Koleksiyonu Görüntüle",
+    "filterBy": "Filtrele",
+    "sortBy": "Sırala",
+    "category": "Kategori",
+    "price": "Fiyat",
+    "priceAsc": "Fiyat: Düşükten Yükseğe",
+    "priceDesc": "Fiyat: Yüksekten Düşüğe",
+    "newest": "En Yeniler",
+    "allCategories": "Tümü",
+    "scarves": "İpek Eşarplar",
+    "belts": "Kemerler",
+    "brooches": "Broşlar",
+    "accessories": "Aksesuarlar",
+    "addToCart": "Sepete Ekle",
+    "emptyWishlist": "İstek listeniz boş."
+  },
+  "collection": {
+    "discoverCollection": "Koleksiyonu Keşfet",
+    "products": "{count} Parça",
+    "editorialStory": "Hikaye",
+    "allCollections": "Tüm Koleksiyonlar"
+  },
+  "journal": {
+    "readMore": "Hikayeyi Oku",
+    "minRead": "{time} dk okuma süresi",
+    "relatedArticles": "Okumaya Devam Et",
+    "categories": "Kategoriler",
+    "allArticles": "Tüm Hikayeler",
+    "styling": "Stil",
+    "behindTheScenes": "Kamera Arkası",
+    "editorial": "Editoryal",
+    "fashion": "Moda",
+    "culture": "Kültür",
+    "news": "Haberler",
+    "publishedOn": "{date} tarihinde yayınlandı",
+    "by": "{author} tarafından",
+    "design": "Tasarım",
+    "sustainability": "Sürdürülebilirlik",
+    "read": "Oku"
+  },
+  "search": {
+    "placeholder": "Ürün, koleksiyon, hikaye ara…",
+    "noResults": "Bunu bulamadık. Başka bir kelime deneyin veya koleksiyonlarımızı keşfedin.",
+    "recentSearches": "Son Aramalar",
+    "trending": "Trendler",
+    "suggestions": "Öneriler",
+    "results": "\"{query}\" için {count} sonuç",
+    "close": "Kapat"
+  },
+  "auth": {
+    "login": "Giriş Yap",
+    "register": "Hesap Oluştur",
+    "logout": "Çıkış Yap",
+    "forgotPassword": "Şifremi Unuttum?",
+    "resetPassword": "Şifreyi Sıfırla",
+    "email": "E-posta",
+    "password": "Şifre",
+    "confirmPassword": "Şifreyi Onayla",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "rememberMe": "Beni hatırla",
+    "noAccount": "Hesabın yok mu?",
+    "hasAccount": "Zaten bir hesabın var mı?",
+    "createAccount": "RULLIÉ hesabını oluştur",
+    "welcomeBack": "Tekrar hoş geldin",
+    "resetInstructions": "E-postanı gir, sana bir sıfırlama bağlantısı gönderelim.",
+    "resetSent": "Sıfırlama bağlantısı için e-postanı kontrol et.",
+    "loginError": "Geçersiz e-posta veya şifre.",
+    "registerError": "Bir şeyler yanlış gitti. Lütfen tekrar dene."
+  },
+  "account": {
+    "profile": "Profil",
+    "settings": "Ayarlar",
+    "wishlist": "İstek Listem",
+    "orders": "Siparişler",
+    "addresses": "Adresler",
+    "notifications": "Bildirimler",
+    "editProfile": "Profili Düzenle",
+    "changePassword": "Şifreyi Değiştir",
+    "deleteAccount": "Hesabı Sil",
+    "savedItems": "{count} kaydedilmiş parça",
+    "noWishlistItems": "Gelecekteki favorilerin seni bekliyor.",
+    "noOrders": "Henüz siparişin yok — ilk RULLIÉ parçan seni bekliyor.",
+    "noAddresses": "Henüz kaydedilmiş adresin yok.",
+    "title": "Hesabım",
+    "description": "RULLIÉ hesabınızı yönetin, istek listenizi görüntüleyin ve siparişlerinizi takip edin.",
+    "signInTitle": "Giriş Yap",
+    "signInDescription": "İstek listelerinizi yönetmek, siparişlerinizi takip etmek ve kişiselleştirilmiş stil önerileri almak için giriş yapın.",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "signIn": "Giriş Yap",
+    "comingSoon": "Hesap girişi yakında",
+    "wishlistSection": "İstek Listeniz",
+    "wishlistDesc": "Kaydettiğiniz ürünleri görüntüleyin ve yönetin.",
+    "shopSection": "Alışverişe Devam",
+    "shopDesc": "En yeni koleksiyonu keşfedin."
+  },
+  "newsletter": {
+    "title": "RULLIÉ Dünyasına Katıl",
+    "subtitle": "Yeni koleksiyonları, editoryal hikayeleri ve özel davetleri ilk keşfeden sen ol.",
+    "placeholder": "E-posta adresiniz",
+    "subscribe": "Abone Ol",
+    "benefits": {
+      "earlyAccess": "Erken Erişim",
+      "exclusiveContent": "Özel İçerik",
+      "stylingInsights": "Stil İpuçları"
+    },
+    "success": "RULLIÉ dünyasına hoş geldin.",
+    "error": "Bir şeyler yanlış gitti. Lütfen tekrar dene.",
+    "privacy": "Gizliliğinize saygı duyuyoruz. İstediğiniz zaman abonelikten çıkabilirsiniz.",
+    "disclaimer": "Abone olarak Gizlilik Politikamızı kabul etmiş ve şirketimizden güncellemeler almayı onaylamış olursunuz."
+  },
+  "contact": {
+    "title": "İletişime Geç",
+    "subtitle": "Sizden haber almaktan mutluluk duyarız.",
+    "name": "Ad",
+    "email": "E-posta",
+    "subject": "Konu",
+    "message": "Mesaj",
+    "send": "Mesaj Gönder",
+    "success": "Teşekkürler. En kısa sürede döneceğiz.",
+    "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+  },
+  "footer": {
+    "shop": "Mağaza",
+    "company": "Şirket",
+    "support": "Destek",
+    "legal": "Yasal",
+    "allProducts": "Tüm Ürünler",
+    "newArrivals": "Yeni Gelenler",
+    "bestSellers": "En Çok Satanlar",
+    "about": "Hakkımızda",
+    "vision": "Vizyon",
+    "mission": "Misyon",
+    "journal": "Günlük",
+    "careers": "Kariyer",
+    "faq": "SSS",
+    "shipping": "Kargo ve İade",
+    "sizeGuide": "Beden Rehberi",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Hizmet Şartları",
+    "cookiePolicy": "Çerez Politikası",
+    "copyright": "© {year} RULLIÉ. Tüm hakları saklıdır.",
+    "tagline": "Unutulmamak İçin Tasarlandı"
+  },
+  "aiStudio": {
+    "title": "AI Stüdyo",
+    "comingSoon": "Çok Yakında",
+    "beta": "Beta",
+    "description": "Yapay zeka destekli stil önerilerini, sanal denemeyi ve kişiselleştirilmiş tavsiyeleri deneyimleyin.",
+    "features": {
+      "stylist": "AI Stilist",
+      "tryOn": "Sanal Deneme",
+      "outfitBuilder": "Kombin Yaratıcı",
+      "wardrobe": "Dijital Gardırop",
+      "colorAnalysis": "Renk Analizi",
+      "tryOnDescription": "Satın almadan önce parçaların üzerinizde nasıl durduğunu görün.",
+      "customFit": "Kişiye Özel Kesim",
+      "customFitDescription": "Tarama ile alınan ölçülere göre kişiselleştirme.",
+      "styleAdvisor": "Stil Danışmanı",
+      "styleAdvisorDescription": "Yapay zeka destekli gardırop önerileri."
+    },
+    "waitlist": "Bekleme Listesine Katıl",
+    "waitlistPlaceholder": "E-posta adresiniz",
+    "waitlistSuccess": "Listeye eklendiniz. AI Stüdyo yayınlandığında size haber vereceğiz.",
+    "feature1Title": "AI Stilist",
+    "feature1Desc": "Stil profilinize göre kişiselleştirilmiş kıyafet önerileri alın.",
+    "feature2Title": "Sanal Deneme",
+    "feature2Desc": "Aksesuarların üzerinizde nasıl göründüğünü satın almadan önce görün.",
+    "feature3Title": "Stil Eşleştirme",
+    "feature3Desc": "Mevcut gardırobunuzu tamamlayan parçalar keşfedin.",
+    "joinWaitlist": "Bekleme Listesine Katıl",
+    "thankYou": "Listedesiniz!",
+    "notifyText": "AI Studio açıldığında sizi bilgilendireceğiz."
+  },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "description": "Aradığınız sayfa mevcut değil veya taşınmış.",
+    "cta": "Ana Sayfaya Dön",
+    "explore": "Koleksiyonları Keşfet"
+  },
+  "common": {
+    "loading": "Yükleniyor…",
+    "error": "Bir şeyler yanlış gitti.",
+    "retry": "Tekrar Dene",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "seeAll": "Tümünü Gör",
+    "learnMore": "Daha Fazla Bilgi",
+    "scrollToTop": "Başa Dön",
+    "share": "Paylaş"
+  },
+  "accessibility": {
+    "skipToContent": "Ana içeriğe atla",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "openSearch": "Aramayı aç",
+    "closeSearch": "Aramayı kapat",
+    "previousSlide": "Önceki slayt",
+    "nextSlide": "Sonraki slayt",
+    "playVideo": "Videoyu oynat",
+    "pauseVideo": "Videoyu duraklat"
+  },
+  "home": {
+    "nocturneTitle": "Nocturne\nKoleksiyonu",
+    "nocturneDescription": "Gölgelerin ve ışığın senfonisi. Modern müzemiz için tasarlanmış yeni ipek ve iddialı parçalar koleksiyonumuzu keşfedin.",
+    "manifestoQuote": "Trendleri takip etmeyiz.\nİmza yaratırız.",
+    "manifestoBody": "Her RULLIÉ parçası, geleneksel teknikleri avangard estetikle harmanlayarak mevsimleri aşan bir gardırop sunmak amacıyla titiz bir özenle üretilir.",
+    "editorialTitle": "Süslenme Sanatı",
+    "editorialBody": "En yeni aksesuar hattımızın ardındaki ilhamı keşfedin. Mimari formlar ve akışkan ipek drapeler arasında bir yolculuk.",
+    "lookbookLook": "Görünüm {number}",
+    "viewAllAccents": "Tüm Aksanları Gör",
+    "stylingGuideTitle": "Bir RULLIÉ ipek eşarp\nnasıl kullanılır",
+    "stylingGuideBody": "Klasik boyun bağlarından modern üst stillere, imza ipeklerimizi günlük repertuvarınıza dahil etmenin çok yönlü yollarını keşfedin.",
+    "readGuide": "Rehberi Oku",
+    "followUs": "Bizi Takip Edin"
+  },
+  "about": {
+    "eyebrow": "Hikayemiz",
+    "title": "RULLIÉ Hakkında",
+    "intro": "RULLIÉ, basit bir inanışla kuruldu: giymeyi seçtiğimiz parçalar, onlara ilham veren mevsimlerden daha uzun ömürlü olmalı.",
+    "storyTitle": "Başlangıç",
+    "storyBody": "Her RULLIÉ parçası aynı şekilde başlar — bir soruyla. \"Trend ne?\" değil, \"on yıl sonra da doğru hissettirecek mi?\" Bu soru; seçtiğimiz her kumaşı, kestiğimiz her silueti ve asla taviz vermediğimiz her detayı şekillendirir.",
+    "valuesTitle": "Neyi Savunuyoruz",
+    "value1Title": "Zanaatkarlık",
+    "value1Body": "Her parça küçük partiler halinde, makinelerin taklit edemeyeceği detaylara zaman ayrılarak üretilir.",
+    "value2Title": "Kalıcılık",
+    "value2Body": "Bir mevsim için değil, on yıl için tasarlıyoruz — daha az ama daha iyi parçalar, değiştirilmek değil giyilmek üzere üretilir.",
+    "value3Title": "Sessiz Özgüven",
+    "value3Body": "RULLIÉ, fark edilmek için bağırmaya ihtiyaç duymayanlar için."
+  },
+  "mission": {
+    "title": "Misyonumuz",
+    "statement": "Öylesine özenle tasarlanmış, öylesine sessizce özgüvenli parçalar yaratmak ki, sadece ne giydiğinizin değil, nasıl hatırlandığınızın da bir parçası olsunlar.",
+    "body": "Var oluş amacımız modayı yavaşlatmak. Her RULLIÉ parçası, değiştirilmek için değil saklanmak için tasarlanır — nasıl geldiklerinden çok nasıl yıprandıklarına göre seçilmiş malzeme ve tekniklerle üretilir."
+  },
+  "vision": {
+    "title": "Vizyonumuz",
+    "statement": "Daha az ama daha doğru kararlarla kurulmuş bir gardırop.",
+    "body": "Kişisel stilin mevsimlik koleksiyonlarla değil, zamanla daha anlamlı hale gelen parçalarla şekillendiği bir geleceği hayal ediyoruz. RULLIÉ, o geleceğe attığımız ilk adım — her seferinde tek bir özenli parçayla."
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "İlk — ya da bir sonraki — RULLIÉ parçanızdan önce bilmeniz gereken her şey.",
+    "categories": {
+      "ordersShipping": "Sipariş & Kargo",
+      "returnsExchanges": "İade & Değişim",
+      "materialsCare": "Malzeme & Bakım",
+      "sizingFit": "Beden & Uyum"
+    },
+    "items": [
+      {
+        "category": "ordersShipping",
+        "question": "Kargo ne kadar sürede geliyor?",
+        "answer": "Siparişler genellikle 1-2 iş günü içinde hazırlanır. Teslimat süresi hedef ülkeye göre değişir ve ödeme adımında onaylanır."
+      },
+      {
+        "category": "ordersShipping",
+        "question": "Yurt dışına kargo gönderiyor musunuz?",
+        "answer": "Şu anda seçili bir ülke grubuna kargo gönderiyoruz, bu liste zamanla genişliyor. Uygunluk ödeme adımında gösterilir."
+      },
+      {
+        "category": "returnsExchanges",
+        "question": "İade politikanız nedir?",
+        "answer": "Kullanılmamış, orijinal durumundaki ürünler teslimattan itibaren 14 gün içinde iade edilebilir. İade başlatmak için ekibimizle iletişime geçin."
+      },
+      {
+        "category": "returnsExchanges",
+        "question": "Ürünü farklı bir bedenle değiştirebilir miyim?",
+        "answer": "Evet — değişimler iadeyle aynı şekilde işleniyor. Bize ulaşın, süreçte size yol gösterelim."
+      },
+      {
+        "category": "materialsCare",
+        "question": "İpek parçalarıma nasıl bakmalıyım?",
+        "answer": "Sadece kuru temizleme öneriyoruz; parçaları düz şekilde, doğrudan güneş ışığından ve parfüm/alkol bazlı ürünlerden uzak saklayın."
+      },
+      {
+        "category": "materialsCare",
+        "question": "RULLIÉ parçaları nerede üretiliyor?",
+        "answer": "Her parça, doğrudan çalıştığımız zanaatkarlar tarafından küçük partiler halinde, zamanla nasıl yıprandığına göre seçilmiş malzemelerle üretilir."
+      },
+      {
+        "category": "sizingFit",
+        "question": "Hangi bedeni seçeceğimi nasıl anlarım?",
+        "answer": "Çoğu RULLIÉ parçası — eşarplar, kemerler ve aksesuarlar — evrensel uyum için tasarlanmıştır. İlgili olduğu durumlarda ürün sayfalarında beden bilgisi belirtilir."
+      }
+    ]
+  },
+  "lookbook": {
+    "title": "Lookbook",
+    "subtitle": "RULLIÉ'nin nasıl giyildiğine dair görsel bir kayıt.",
+    "grid": "Tüm Görünümler"
+  },
+  "cart": {
+    "title": "Sepetiniz",
+    "empty": "Sepetiniz boş.",
+    "continueShopping": "Alışverişe Devam Et",
+    "subtotal": "Ara Toplam",
+    "remove": "Kaldır",
+    "checkout": "Ödemeye Geç",
+    "checkoutUnavailable": "Ödeme sistemi henüz bağlı değil — bize ulaşın, siparişinizi tamamlamanıza yardımcı olalım.",
+    "quantity": "Adet"
+  }
+}

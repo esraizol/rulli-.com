@@ -1,0 +1,175 @@
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/next.config.ts P0/next.config.ts
+--- /home/claude/patch_base/original/next.config.ts	2026-08-04 13:14:08.000000000 +0000
++++ P0/next.config.ts	2026-08-07 20:07:08.780584649 +0000
+@@ -6,12 +6,11 @@
+ const nextConfig: NextConfig = {
+   images: {
+     formats: ['image/avif', 'image/webp'],
+-    remotePatterns: [
+-      {
+-        protocol: 'https',
+-        hostname: '**',
+-      },
+-    ],
++    // NOTE: intentionally empty. Add explicit, trusted hostnames here
++    // (e.g. your CDN or asset host) as remote images are introduced.
++    // Do not use a '**' wildcard — it lets the image optimizer proxy
++    // arbitrary external URLs.
++    remotePatterns: [],
+   },
+ };
+ 
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/account/page.tsx P0/src/app/[locale]/account/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/account/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/account/page.tsx	2026-08-07 20:07:08.780584649 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Account' };
++
++export default function AccountPage() {
++  const t = useTranslations('nav');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('account')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/cookies/page.tsx P0/src/app/[locale]/cookies/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/cookies/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/cookies/page.tsx	2026-08-07 20:07:08.783948187 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Cookie Policy' };
++
++export default function CookiesPage() {
++  const t = useTranslations('footer');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('cookiePolicy')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/privacy/page.tsx P0/src/app/[locale]/privacy/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/privacy/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/privacy/page.tsx	2026-08-07 20:07:08.783998990 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Privacy Policy' };
++
++export default function PrivacyPage() {
++  const t = useTranslations('footer');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('privacyPolicy')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/shipping/page.tsx P0/src/app/[locale]/shipping/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/shipping/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/shipping/page.tsx	2026-08-07 20:07:08.784044759 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Shipping & Returns' };
++
++export default function ShippingPage() {
++  const t = useTranslations('footer');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('shipping')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/size-guide/page.tsx P0/src/app/[locale]/size-guide/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/size-guide/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/size-guide/page.tsx	2026-08-07 20:07:08.784093873 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Size Guide' };
++
++export default function SizeGuidePage() {
++  const t = useTranslations('footer');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('sizeGuide')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/terms/page.tsx P0/src/app/[locale]/terms/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/terms/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/terms/page.tsx	2026-08-07 20:07:08.784139327 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Terms of Service' };
++
++export default function TermsPage() {
++  const t = useTranslations('footer');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('termsOfService')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/app/[locale]/wishlist/page.tsx P0/src/app/[locale]/wishlist/page.tsx
+--- /home/claude/patch_base/original/src/app/[locale]/wishlist/page.tsx	1970-01-01 00:00:00.000000000 +0000
++++ P0/src/app/[locale]/wishlist/page.tsx	2026-08-07 20:07:08.784184925 +0000
+@@ -0,0 +1,15 @@
++import { useTranslations } from 'next-intl';
++import type { Metadata } from 'next';
++
++export const metadata: Metadata = { title: 'Wishlist' };
++
++export default function WishlistPage() {
++  const t = useTranslations('nav');
++  return (
++    <section className="min-h-screen pt-32 pb-20">
++      <div className="container mx-auto px-4 md:px-8">
++        <h1 className="font-heading text-display font-bold tracking-tight">{t('wishlist')}</h1>
++      </div>
++    </section>
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' /home/claude/patch_base/original/src/components/layout/footer.tsx P0/src/components/layout/footer.tsx
+--- /home/claude/patch_base/original/src/components/layout/footer.tsx	2026-08-04 13:14:08.000000000 +0000
++++ P0/src/components/layout/footer.tsx	2026-08-07 20:07:08.784184925 +0000
+@@ -60,7 +60,7 @@
+             <h3 className="font-heading text-lg font-bold uppercase">{t('support')}</h3>
+             <Link href="/faq" className="text-muted hover:text-background transition-colors">{t('faq')}</Link>
+             <Link href="/shipping" className="text-muted hover:text-background transition-colors">{t('shipping')}</Link>
+-            <Link href="/contact" className="text-muted hover:text-background transition-colors">{t('sizeGuide')}</Link>
++            <Link href="/size-guide" className="text-muted hover:text-background transition-colors">{t('sizeGuide')}</Link>
+           </div>
+ 
+           <div className="space-y-4 flex flex-col">
+@@ -72,7 +72,7 @@
+ 
+           <div className="space-y-4 flex flex-col">
+             <h3 className="font-heading text-lg font-bold uppercase">{t('tagline')}</h3>
+-            <form className="mt-2 flex flex-col gap-3">
++            <form className="mt-2 flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+               <input
+                 type="email"
+                 placeholder="Email"

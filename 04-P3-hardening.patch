@@ -1,0 +1,144 @@
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/app/[locale]/page.tsx P3/src/app/[locale]/page.tsx
+--- P2/src/app/[locale]/page.tsx	2026-08-08 07:47:13.183087744 +0000
++++ P3/src/app/[locale]/page.tsx	2026-08-08 07:47:57.976295668 +0000
+@@ -3,7 +3,7 @@
+ import { useLocale, useTranslations } from 'next-intl';
+ import { motion } from 'framer-motion';
+ import { Link } from '@/i18n/routing';
+-import { ScrollReveal, StaggerChildren, SectionLabel } from '@/components/ui';
++import { ScrollReveal, StaggerChildren, SectionLabel, ParallaxImage } from '@/components/ui';
+ import { JournalPreviewCard, AIStudioFeature } from '@/components/home';
+ import { ProductCard } from '@/components/product';
+ import { featuredProducts, crossSellProducts, journalPreview } from '@/lib/mock-data';
+@@ -83,9 +83,14 @@
+           <SectionLabel>{tSections('latestChapter', { fallback: 'The Latest Chapter' })}</SectionLabel>
+           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mt-12 items-center">
+             <div className="md:col-span-7">
+-              <div className="aspect-[3/4] w-full bg-gradient-to-br from-stone-200 to-stone-400 rounded-sm overflow-hidden relative group">
+-                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700" />
+-              </div>
++              <ParallaxImage
++                src="/images/placeholder-editorial.jpg"
++                alt=""
++                width={1200}
++                height={1600}
++                priority
++                containerClassName="aspect-[3/4] w-full rounded-sm"
++              />
+             </div>
+             <div className="md:col-span-5 flex flex-col items-start justify-center md:pl-10">
+               <h2 className="font-heading text-display leading-tight mb-6 whitespace-pre-line">
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/components/layout/custom-cursor.tsx P3/src/components/layout/custom-cursor.tsx
+--- P2/src/components/layout/custom-cursor.tsx	2026-08-08 07:45:28.772848218 +0000
++++ P3/src/components/layout/custom-cursor.tsx	2026-08-08 07:47:32.049212836 +0000
+@@ -1,18 +1,14 @@
+ 'use client';
+ 
+ import { useCursor } from '@/hooks/use-cursor';
++import { useIsClient } from '@/hooks/use-is-client';
+ import { createPortal } from 'react-dom';
+-import { useEffect, useState } from 'react';
+ 
+ export function CustomCursor() {
+   const { cursorRef, isDesktop } = useCursor();
+-  const [mounted, setMounted] = useState(false);
++  const isClient = useIsClient();
+ 
+-  useEffect(() => {
+-    setMounted(true);
+-  }, []);
+-
+-  if (!mounted || !isDesktop) return null;
++  if (!isClient || !isDesktop) return null;
+ 
+   return createPortal(
+     <div ref={cursorRef} className="cursor pointer-events-none fixed top-0 left-0 z-[9999]" />,
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/components/ui/scroll-reveal.tsx P3/src/components/ui/scroll-reveal.tsx
+--- P2/src/components/ui/scroll-reveal.tsx	2026-08-08 07:45:28.776108259 +0000
++++ P3/src/components/ui/scroll-reveal.tsx	2026-08-08 07:47:46.858151847 +0000
+@@ -43,7 +43,7 @@
+       className={cn(className)}
+       initial={getInitial()}
+       animate={isVisible ? { opacity: 1, x: 0, y: 0 } : getInitial()}
+-      transition={{ duration, delay, ease: EASINGS.outExpo as unknown as number[] }}
++      transition={{ duration, delay, ease: EASINGS.outExpo }}
+     >
+       {children}
+     </motion.div>
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/components/ui/stagger-children.tsx P3/src/components/ui/stagger-children.tsx
+--- P2/src/components/ui/stagger-children.tsx	2026-08-08 07:45:28.777198653 +0000
++++ P3/src/components/ui/stagger-children.tsx	2026-08-08 07:47:49.980329899 +0000
+@@ -42,7 +42,7 @@
+           transition={{
+             duration,
+             delay: index * staggerDelay,
+-            ease: EASINGS.outExpo as unknown as number[],
++            ease: EASINGS.outExpo,
+           }}
+         >
+           {child}
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/hooks/index.ts P3/src/hooks/index.ts
+--- P2/src/hooks/index.ts	2026-08-08 07:45:28.780810182 +0000
++++ P3/src/hooks/index.ts	2026-08-08 07:47:26.992822055 +0000
+@@ -3,3 +3,4 @@
+ export { useMediaQuery, useIsDesktop, useBreakpoint } from './use-media-query';
+ export { useLockBody } from './use-lock-body';
+ export { useCursor } from './use-cursor';
++export { useIsClient } from './use-is-client';
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/hooks/use-is-client.ts P3/src/hooks/use-is-client.ts
+--- P2/src/hooks/use-is-client.ts	1970-01-01 00:00:00.000000000 +0000
++++ P3/src/hooks/use-is-client.ts	2026-08-08 07:47:23.556695130 +0000
+@@ -0,0 +1,18 @@
++'use client';
++import { useSyncExternalStore } from 'react';
++
++const subscribe = () => () => {};
++
++/**
++ * Returns true only after the component has mounted on the client.
++ * Use this instead of `useEffect(() => setState(true), [])` for SSR/CSR
++ * mismatch cases (e.g. portals that need `document`) — this avoids
++ * calling setState synchronously inside an effect.
++ */
++export function useIsClient(): boolean {
++  return useSyncExternalStore(
++    subscribe,
++    () => true,
++    () => false
++  );
++}
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/stores/auth-store.ts P3/src/stores/auth-store.ts
+--- P2/src/stores/auth-store.ts	2026-08-08 07:45:28.789204610 +0000
++++ P3/src/stores/auth-store.ts	2026-08-08 07:47:43.887655928 +0000
+@@ -26,6 +26,14 @@
+         if (user) set({ user: { ...user, ...updates } });
+       },
+     }),
+-    { name: 'rullie-auth' }
++    {
++      name: 'rullie-auth',
++      // Intentionally persist nothing: `user` carries real PII (email,
++      // phone, avatar) and should never sit in plaintext localStorage.
++      // Once a real backend exists, session state belongs in an httpOnly
++      // cookie, and this store should be re-hydrated by revalidating with
++      // the server on load rather than trusting a cached client value.
++      partialize: () => ({}),
++    }
+   )
+ );
+diff -ruN '--exclude=prototype' '--exclude=images' P2/src/stores/wishlist-store.ts P3/src/stores/wishlist-store.ts
+--- P2/src/stores/wishlist-store.ts	2026-08-08 07:45:28.791117459 +0000
++++ P3/src/stores/wishlist-store.ts	2026-08-08 07:47:35.403588401 +0000
+@@ -22,7 +22,11 @@
+         items: state.items.filter((id) => id !== productId),
+       })),
+       toggleItem: (productId) => {
+-        get().items.includes(productId) ? get().removeItem(productId) : get().addItem(productId);
++        if (get().items.includes(productId)) {
++          get().removeItem(productId);
++        } else {
++          get().addItem(productId);
++        }
+       },
+       isInWishlist: (productId) => get().items.includes(productId),
+       clearAll: () => set({ items: [] }),

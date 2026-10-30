@@ -1,0 +1,368 @@
+{
+  "brand": {
+    "name": "RULLIÉ",
+    "tagline": "Designed to Be Remembered"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "collections": "Collections",
+    "lookbook": "Lookbook",
+    "journal": "Journal",
+    "about": "About",
+    "vision": "Vision",
+    "mission": "Mission",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "search": "Search",
+    "account": "Account",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "aiStudio": "AI Studio",
+    "language": "TR"
+  },
+  "hero": {
+    "title": "RULLIÉ",
+    "subtitle": "Designed to Be Remembered.",
+    "cta": "Explore the Collection",
+    "scroll": "Scroll"
+  },
+  "sections": {
+    "latestChapter": "The Latest Chapter",
+    "featuredProducts": "Featured Pieces",
+    "manifesto": "Our Philosophy",
+    "editorial": "Editorial",
+    "lookbook": "Lookbook",
+    "completeTheStory": "Complete the Story",
+    "stylingGuide": "Styling Guide",
+    "aiStudio": "AI Studio",
+    "wornByYou": "Worn by You",
+    "socialFeed": "@rullié",
+    "journal": "From the Journal",
+    "newsletter": "Join the RULLIÉ World"
+  },
+  "product": {
+    "addToWishlist": "Save to Wishlist",
+    "removeFromWishlist": "Remove from Wishlist",
+    "buyViaShopier": "Discover on Shopier",
+    "material": "Material",
+    "careInstructions": "Care Instructions",
+    "story": "The Story",
+    "details": "Details",
+    "relatedProducts": "Complete the Story",
+    "inStock": "In Stock",
+    "lowStock": "Only a Few Left",
+    "outOfStock": "Currently Unavailable",
+    "preOrder": "Pre-Order",
+    "new": "New",
+    "featured": "Featured",
+    "exploreAll": "Explore All Pieces",
+    "viewCollection": "View Collection",
+    "filterBy": "Filter by",
+    "sortBy": "Sort by",
+    "category": "Category",
+    "price": "Price",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "newest": "Newest",
+    "allCategories": "All",
+    "scarves": "Silk Scarves",
+    "belts": "Belts",
+    "brooches": "Brooches",
+    "accessories": "Accessories",
+    "addToCart": "Add to Cart",
+    "emptyWishlist": "Your wishlist is empty."
+  },
+  "collection": {
+    "discoverCollection": "Discover the Collection",
+    "products": "{count} Pieces",
+    "editorialStory": "The Story",
+    "allCollections": "All Collections"
+  },
+  "journal": {
+    "readMore": "Read the Story",
+    "minRead": "{time} min read",
+    "relatedArticles": "Continue Reading",
+    "categories": "Categories",
+    "allArticles": "All Stories",
+    "styling": "Styling",
+    "behindTheScenes": "Behind the Scenes",
+    "editorial": "Editorial",
+    "fashion": "Fashion",
+    "culture": "Culture",
+    "news": "News",
+    "publishedOn": "Published on {date}",
+    "by": "by {author}",
+    "design": "Design",
+    "sustainability": "Sustainability",
+    "read": "Read"
+  },
+  "search": {
+    "placeholder": "Search products, collections, stories…",
+    "noResults": "We couldn't find that. Try another keyword or explore our collections.",
+    "recentSearches": "Recent Searches",
+    "trending": "Trending",
+    "suggestions": "Suggestions",
+    "results": "{count} results for \"{query}\"",
+    "close": "Close"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Create Account",
+    "logout": "Sign Out",
+    "forgotPassword": "Forgot Password?",
+    "resetPassword": "Reset Password",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "rememberMe": "Remember me",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create your RULLIÉ account",
+    "welcomeBack": "Welcome back",
+    "resetInstructions": "Enter your email and we'll send you a reset link.",
+    "resetSent": "Check your email for a reset link.",
+    "loginError": "Invalid email or password.",
+    "registerError": "Something went wrong. Please try again."
+  },
+  "account": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "wishlist": "My Wishlist",
+    "orders": "Orders",
+    "addresses": "Addresses",
+    "notifications": "Notifications",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+    "deleteAccount": "Delete Account",
+    "savedItems": "{count} saved pieces",
+    "noWishlistItems": "Your future favorites are waiting.",
+    "noOrders": "No orders yet — your first RULLIÉ piece awaits.",
+    "noAddresses": "No saved addresses yet.",
+    "title": "My Account",
+    "description": "Manage your RULLIÉ account, view your wishlist, and track your orders.",
+    "signInTitle": "Sign In",
+    "signInDescription": "Access your account to manage wishlists, track orders, and receive personalized styling.",
+    "emailPlaceholder": "Enter your email",
+    "signIn": "Sign In",
+    "comingSoon": "Account sign-in coming soon",
+    "wishlistSection": "Your Wishlist",
+    "wishlistDesc": "View and manage your saved items.",
+    "shopSection": "Continue Shopping",
+    "shopDesc": "Explore the latest collection."
+  },
+  "newsletter": {
+    "title": "Join the RULLIÉ World",
+    "subtitle": "Be the first to discover new collections, editorial stories, and exclusive invitations.",
+    "placeholder": "Your email address",
+    "subscribe": "Subscribe",
+    "benefits": {
+      "earlyAccess": "Early Access",
+      "exclusiveContent": "Exclusive Content",
+      "stylingInsights": "Styling Insights"
+    },
+    "success": "Welcome to the RULLIÉ world.",
+    "error": "Something went wrong. Please try again.",
+    "privacy": "We respect your privacy. Unsubscribe anytime.",
+    "disclaimer": "By subscribing, you agree to our Privacy Policy and consent to receive updates from our company."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Thank you. We'll be in touch soon.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "shop": "Shop",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "allProducts": "All Products",
+    "newArrivals": "New Arrivals",
+    "bestSellers": "Best Sellers",
+    "about": "About",
+    "vision": "Vision",
+    "mission": "Mission",
+    "journal": "Journal",
+    "careers": "Careers",
+    "faq": "FAQ",
+    "shipping": "Shipping & Returns",
+    "sizeGuide": "Size Guide",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "© {year} RULLIÉ. All rights reserved.",
+    "tagline": "Designed to Be Remembered"
+  },
+  "aiStudio": {
+    "title": "AI Studio",
+    "comingSoon": "Coming Soon",
+    "beta": "Beta",
+    "description": "Experience AI-powered styling, virtual try-on, and personalized recommendations.",
+    "features": {
+      "stylist": "AI Stylist",
+      "tryOn": "Virtual Try-On",
+      "outfitBuilder": "Outfit Builder",
+      "wardrobe": "Digital Wardrobe",
+      "colorAnalysis": "Color Analysis",
+      "tryOnDescription": "See how pieces fit before you buy.",
+      "customFit": "Custom Fit",
+      "customFitDescription": "Tailored measurements via scanning.",
+      "styleAdvisor": "Style Advisor",
+      "styleAdvisorDescription": "AI-driven wardrobe recommendations."
+    },
+    "waitlist": "Join the Waitlist",
+    "waitlistPlaceholder": "Your email address",
+    "waitlistSuccess": "You're on the list. We'll notify you when AI Studio launches.",
+    "feature1Title": "AI Stylist",
+    "feature1Desc": "Get personalized outfit recommendations powered by your style profile.",
+    "feature2Title": "Virtual Try-On",
+    "feature2Desc": "See how accessories look on you before purchasing.",
+    "feature3Title": "Style Matching",
+    "feature3Desc": "Discover pieces that complement your existing wardrobe.",
+    "joinWaitlist": "Join Waitlist",
+    "thankYou": "You're on the list!",
+    "notifyText": "We'll notify you when AI Studio launches."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Return Home",
+    "explore": "Explore Collections"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "retry": "Try Again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "seeAll": "See All",
+    "learnMore": "Learn More",
+    "scrollToTop": "Back to Top",
+    "share": "Share"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "openSearch": "Open search",
+    "closeSearch": "Close search",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "playVideo": "Play video",
+    "pauseVideo": "Pause video"
+  },
+  "home": {
+    "nocturneTitle": "Nocturne\nCollection",
+    "nocturneDescription": "A symphony of shadows and light. Explore our new line of silk and statement pieces designed for the modern muse.",
+    "manifestoQuote": "We don't follow trends.\nWe create signatures.",
+    "manifestoBody": "Every RULLIÉ piece is crafted with meticulous attention to detail, blending heritage techniques with avant-garde aesthetics to offer a wardrobe that transcends seasons.",
+    "editorialTitle": "The Art of Adornment",
+    "editorialBody": "Discover the inspiration behind our latest accessories line. A journey through architectural forms and fluid silk drapery.",
+    "lookbookLook": "Look {number}",
+    "viewAllAccents": "View All Accents",
+    "stylingGuideTitle": "How to wear a\nRULLIÉ silk scarf",
+    "stylingGuideBody": "From classic neck ties to modern top styles, discover versatile ways to incorporate our signature silks into your everyday repertoire.",
+    "readGuide": "Read Guide",
+    "followUs": "Follow Us"
+  },
+  "about": {
+    "eyebrow": "Our Story",
+    "title": "About RULLIÉ",
+    "intro": "RULLIÉ was founded on a simple belief: the pieces we choose to wear should outlast the seasons that inspired them.",
+    "storyTitle": "Where It Began",
+    "storyBody": "Every RULLIÉ piece begins the same way — with a question. Not “what's trending,” but “what will still feel right in ten years?” That question shapes every fabric we choose, every silhouette we cut, and every detail we refuse to compromise on.",
+    "valuesTitle": "What We Stand For",
+    "value1Title": "Craftsmanship",
+    "value1Body": "Each piece is made in small batches, with time given to the details that machines can't replicate.",
+    "value2Title": "Longevity",
+    "value2Body": "We design for a decade, not a season — fewer, better pieces, made to be worn rather than replaced.",
+    "value3Title": "Quiet Confidence",
+    "value3Body": "RULLIÉ is for those who don't need to shout to be noticed."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "statement": "To create pieces so considered, so quietly confident, that they become part of how you're remembered — not just what you wore.",
+    "body": "We exist to slow fashion down. Every RULLIÉ piece is designed to be kept, not replaced — built from materials and techniques chosen for how they age, not just how they arrive."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "statement": "A wardrobe built on fewer, better decisions.",
+    "body": "We imagine a future where personal style isn’t dictated by seasonal drops, but by pieces that grow more meaningful with time. RULLIÉ is our first step toward that future — one considered piece at a time."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before your first — or next — RULLIÉ piece.",
+    "categories": {
+      "ordersShipping": "Orders & Shipping",
+      "returnsExchanges": "Returns & Exchanges",
+      "materialsCare": "Materials & Care",
+      "sizingFit": "Sizing & Fit"
+    },
+    "items": [
+      {
+        "category": "ordersShipping",
+        "question": "How long does shipping take?",
+        "answer": "Orders are typically processed within 1–2 business days. Delivery times vary by destination and are confirmed at checkout."
+      },
+      {
+        "category": "ordersShipping",
+        "question": "Do you ship internationally?",
+        "answer": "We currently ship to a select group of countries, with more being added over time. Availability is shown at checkout."
+      },
+      {
+        "category": "returnsExchanges",
+        "question": "What is your return policy?",
+        "answer": "Unworn items in original condition can be returned within 14 days of delivery. Please reach out to our team to start a return."
+      },
+      {
+        "category": "returnsExchanges",
+        "question": "Can I exchange an item for a different size?",
+        "answer": "Yes — exchanges are handled the same way as returns. Contact us and we’ll guide you through it."
+      },
+      {
+        "category": "materialsCare",
+        "question": "How should I care for my silk pieces?",
+        "answer": "We recommend dry cleaning only, and storing pieces flat, away from direct sunlight and perfume or alcohol-based products."
+      },
+      {
+        "category": "materialsCare",
+        "question": "Where are RULLIÉ pieces made?",
+        "answer": "Each piece is made in small batches by artisans we work with directly, using materials chosen for how they age over time."
+      },
+      {
+        "category": "sizingFit",
+        "question": "How do I know what size to order?",
+        "answer": "Most RULLIÉ pieces — scarves, belts, and accessories — are designed to fit universally. Product pages note sizing where relevant."
+      }
+    ]
+  },
+  "lookbook": {
+    "title": "Lookbook",
+    "subtitle": "A visual record of how RULLIÉ is worn.",
+    "grid": "All Looks"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "continueShopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "remove": "Remove",
+    "checkout": "Proceed to Checkout",
+    "checkoutUnavailable": "Checkout isn't connected yet — reach out and we'll help you complete your order.",
+    "quantity": "Quantity"
+  }
+}

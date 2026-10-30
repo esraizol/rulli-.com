@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ============================================
+   RULLIÉ Design System — Tailwind v4 Theme
+   ============================================ */
+
+@theme inline {
+  /* — Colors — */
+  --color-background: #FFFFFF;
+  --color-foreground: #111111;
+  --color-muted: #6E6E73;
+  --color-border: #ECECEC;
+  --color-cream: #F8F6F3;
+  --color-warm-gray: #F2F0ED;
+  --color-success: #3A7D44;
+  --color-error: #C5362B;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-overlay-dark: rgba(0, 0, 0, 0.7);
+
+  /* — Typography — */
+  --font-heading: var(--font-space-grotesk), 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: var(--font-inter), 'Inter', -apple-system, sans-serif;
+
+  /* — Font Sizes (fluid) — */
+  --text-hero: clamp(3.5rem, 9vw, 8rem);
+  --text-display: clamp(3rem, 7vw, 6.5rem);
+  --text-2xl: clamp(2.25rem, 4vw, 3.5rem);
+  --text-xl: clamp(1.75rem, 3vw, 2.5rem);
+
+  /* — Spacing — */
+  --spacing-section: clamp(5rem, 10vh, 10rem);
+  --spacing-container: clamp(1.5rem, 4vw, 3rem);
+
+  /* — Shadows — */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+  /* — Border Radius — */
+  --radius-soft: 10px;
+  --radius-full: 9999px;
+
+  /* — Transitions — */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* — Z-Index — */
+  --z-cursor: 9999;
+  --z-modal: 1100;
+  --z-nav: 1000;
+  --z-overlay: 900;
+  --z-above: 10;
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-foreground);
+  background: var(--color-background);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* — Selection — */
+::selection {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+/* — Focus — */
+:focus-visible {
+  outline: 2px solid var(--color-foreground);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* — Images — */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* — Links — */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   Custom Cursor
+   ============================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+.cursor {
+  position: fixed;
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-foreground);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: width 0.4s var(--ease-out-expo),
+              height 0.4s var(--ease-out-expo),
+              opacity 0.3s ease;
+  will-change: transform;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+.cursor--hover {
+  width: 12px;
+  height: 12px;
+  top: -6px;
+  left: -6px;
+}
+
+.cursor--product {
+  width: 64px;
+  height: 64px;
+  top: -32px;
+  left: -32px;
+  background: var(--color-background);
+  mix-blend-mode: normal;
+  border: 1px solid var(--color-foreground);
+}
+
+.cursor--video {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: -40px;
+  background: var(--color-background);
+  mix-blend-mode: normal;
+}
+
+.cursor--video::after {
+  content: '▶';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--color-foreground);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Custom Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   Skip to Content (Accessibility)
+   ============================================ */
+
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: calc(var(--z-nav) + 1);
+  padding: 0.75rem 1.5rem;
+  background: var(--color-foreground);
+  color: var(--color-background);
+  font-size: 0.875rem;
+  border-radius: var(--radius-soft);
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
